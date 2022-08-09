@@ -1,11 +1,22 @@
-import Tmp from './TmpPage/Tmp';
+import Tutorial from '../components/Tutorial';
+import TutorialsList from '../components/TutorialList';
+import AddTutorial from '../components/AddTutorial';
+import { Route, Routes } from 'react-router-dom';
+import Navbar from '../components/Navbar';
 
 const App = () => {
   return (
-    <div className='App'>
-      <div>메인</div>
-      <Tmp />
-    </div>
+    <>
+      <Navbar />
+      <div className='container mt-3'>
+        <Routes>
+          <Route path='/' element={<TutorialsList />} />
+          <Route path='/tutorials' element={<TutorialsList />} />
+          <Route path='/add' element={<AddTutorial />} />
+          <Route path='/tutorials/:id' element={<Tutorial />} />
+        </Routes>
+      </div>
+    </>
   );
 };
 
